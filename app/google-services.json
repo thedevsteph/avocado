@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "68099165442",
+    "firebase_url": "https://avocado-aeb52.firebaseio.com",
+    "project_id": "avocado-aeb52",
+    "storage_bucket": "avocado-aeb52.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68099165442:android:7337451f7d6c0c20cf461b",
+        "android_client_info": {
+          "package_name": "com.stephanie.avocado"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "68099165442-tdooj70nsa5n1iil8fkout277j2bhl82.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwKPrd1u3-_Ni0I3LDkZqRe0AIzRMH9tY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "68099165442-tdooj70nsa5n1iil8fkout277j2bhl82.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,13 +10,12 @@
         app:behavior_peekHeight="60dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-    <TextView
+
+    <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:orientation="horizontal"
             android:background="@color/colorCreamyCream"
-            android:gravity="center"
-            android:text="The cart"
-            android:textColor="@android:color/white" />
+            android:layout_height="60dp" />
 
     <TextView
             android:layout_width="match_parent"

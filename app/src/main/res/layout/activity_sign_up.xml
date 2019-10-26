@@ -1,134 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+                name="signUpViewModel"
+                type="com.example.login.SignUpViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorWhite"
-    >
+            android:background="@color/colorWhite">
 
         <ImageView
                 android:id="@+id/cabbage_image"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="54dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="54dp"
                 android:src="@drawable/ic_cabbage"
-                android:layout_height="100dp"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
                 android:id="@+id/signup_text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cabbage_image"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"
-                android:textColor="@color/colorAvocadoGreen"
                 android:layout_height="wrap_content"
-                android:text="S I G N  U P"/>
+                android:layout_marginTop="10dp"
+                android:text="S I G N  U P"
+                android:textColor="@color/colorAvocadoGreen"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cabbage_image" />
 
         <TextView
                 android:id="@+id/login_subtext_text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/signup_text"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
-                android:text="Join the family today"/>
+                android:layout_marginTop="10dp"
+                android:text="Join the family today"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signup_text" />
 
         <TextView
                 android:id="@+id/email_text"
-                app:layout_constraintTop_toBottomOf="@id/signup_text"
-                android:layout_marginTop="54dp"
-                app:layout_constraintStart_toStartOf="@id/guideline_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="54dp"
+                android:text="E M A I L"
                 android:textColor="@color/colorBlack"
-                android:text="E M A I L"/>
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/signup_text" />
 
         <EditText
                 android:id="@+id/email_edit_text"
-                app:layout_constraintTop_toBottomOf="@id/email_text"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="@id/guideline_left"
-                app:layout_constraintEnd_toEndOf="@id/guideline_right"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAvocadoGreen"
-                android:textStyle="bold"
-                android:paddingVertical="10dp"
-                android:maxLength="25"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_rounded_border"
                 android:inputType="textEmailAddress"
+                android:maxLength="25"
                 android:maxLines="1"
                 android:paddingHorizontal="20dp"
-                android:background="@drawable/button_rounded_border"
-        />
+                android:paddingVertical="10dp"
+                app:layout_constraintEnd_toEndOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/email_text" />
 
         <TextView
                 android:id="@+id/password_text"
-                app:layout_constraintTop_toBottomOf="@id/email_edit_text"
-                android:layout_marginTop="35dp"
-                app:layout_constraintStart_toStartOf="@id/guideline_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="P A S S W O R D"
                 android:textColor="@color/colorBlack"
-                android:text="P A S S W O R D"/>
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/email_edit_text" />
 
         <EditText
                 android:id="@+id/password_edit_text"
-                app:layout_constraintTop_toBottomOf="@id/password_text"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="@id/guideline_left"
-                app:layout_constraintEnd_toEndOf="@id/guideline_right"
                 android:layout_width="0dp"
-                android:maxLength="15"
-                android:textStyle="bold"
-                android:inputType="textPassword"
-                android:textColor="@color/colorAvocadoGreen"
-                android:maxLines="1"
-                android:paddingVertical="10dp"
-                android:paddingHorizontal="20dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/button_rounded_border"
-        />
+                android:inputType="textPassword"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                app:layout_constraintEnd_toEndOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/password_text" />
+
+        <TextView
+                android:id="@+id/error_message_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/password_edit_text"
+                tools:text="@string/user_exists_error_message" />
 
         <TextView
                 android:id="@+id/submit_text_view"
-                app:layout_constraintTop_toBottomOf="@id/password_edit_text"
-                app:layout_constraintStart_toStartOf="@id/guideline_left"
-                app:layout_constraintEnd_toEndOf="@id/guideline_right"
-                android:layout_marginTop="100dp"
                 android:layout_width="0dp"
-                android:text="Get started"
-                android:textSize="16sp"
-                android:gravity="center"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/get_started_background"
+                android:gravity="center"
                 android:paddingHorizontal="30dp"
                 android:paddingVertical="14dp"
-                android:background="@drawable/get_started_background"
+                android:text="Get started"
                 android:textColor="@color/colorWhite"
-                android:layout_marginBottom="100dp"
-                android:layout_height="wrap_content"/>
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/guideline_right"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/password_edit_text" />
 
         <androidx.constraintlayout.widget.Guideline
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
                 android:id="@+id/guideline_left"
-                app:layout_constraintGuide_begin="60dp"
-                android:orientation="vertical"/>
-
-        <androidx.constraintlayout.widget.Guideline
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="60dp"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 app:layout_constraintGuide_end="60dp"
-                android:orientation="vertical"/>
+                app:layout_constraintStart_toEndOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

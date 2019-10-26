@@ -16,7 +16,6 @@ class SignUpActivity : AppCompatActivity() {
 
     companion object {
         private lateinit var viewModel: SignUpViewModel
-        private var authRepository: AuthRepository = AuthRepository()
         private const val INVALID_MESSAGE = "Sorry, account cannot be created"
     }
 

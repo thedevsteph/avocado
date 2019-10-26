@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -37,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun validateUserDetails() {
 
-        val submitButton: ImageView = findViewById(R.id.enter_image_box)
+        val submitButton: TextView = findViewById(R.id.enter_image_box)
         val emailEditText: EditText = findViewById(R.id.login_email_edit_text)
         val passwordEditText: EditText = findViewById(R.id.login_password_edit_text)
 

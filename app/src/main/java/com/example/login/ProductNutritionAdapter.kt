@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.login.productInformation.NutritionData
 
 class ProductNutritionAdapter(private val nutritionData: NutritionData) :
     RecyclerView.Adapter<ProductNutritionAdapter.ProductNutritionViewHolder>() {

@@ -1,4 +1,4 @@
-package com.example.login
+package com.example.login.home
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.login.FoodItemData
+import com.example.login.productInformation.ProductInformationActivity
+import com.example.login.R
+import com.example.login.Utils
 import com.squareup.picasso.Picasso
 
 class HomeAdapter(private val foodItemList: FoodItemData) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {

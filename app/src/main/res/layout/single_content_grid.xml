@@ -7,7 +7,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/grey_rounded_border"
         android:padding="10dp"
-        tools:context="com.example.login.HomeActivity">
+        tools:context="com.example.login.home.HomeActivity">
     <TextView
             android:id="@+id/nutrition_value_value"
             android:layout_width="wrap_content"

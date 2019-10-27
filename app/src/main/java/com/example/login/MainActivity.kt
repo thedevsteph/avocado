@@ -5,6 +5,8 @@ import android.os.Bundle
 
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.login.login.LoginActivity
+import com.example.login.signup.SignUpActivity
 
 class MainActivity : AppCompatActivity() {
 

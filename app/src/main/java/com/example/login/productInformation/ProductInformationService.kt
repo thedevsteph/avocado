@@ -1,5 +1,6 @@
-package com.example.login
+package com.example.login.productInformation
 
+import com.example.login.Utils
 import io.reactivex.Observable
 import retrofit2.http.GET
 

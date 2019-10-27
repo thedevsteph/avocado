@@ -1,16 +1,18 @@
-package com.example.login
+package com.example.login.login
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.example.login.R
+import com.example.login.Utils
 import com.example.login.databinding.ActivityLoginBinding
+import com.example.login.home.HomeActivity
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 
@@ -30,7 +32,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         ActivityLoginBinding.inflate(LayoutInflater.from(this)).apply {
             setContentView(root)
-            viewModel = ViewModelProviders.of(this@LoginActivity).get(LoginViewModel::class.java)
+            viewModel = ViewModelProviders.of(this@LoginActivity).get(
+                LoginViewModel::class.java)
             setLifecycleOwner(this@LoginActivity)
         }
         validateUserDetails()
@@ -58,11 +61,13 @@ class LoginActivity : AppCompatActivity() {
     private var validationObserver = Observer<AuthResult?> { result ->
         when ((result is RuntimeException)) {
             false -> {
-                Toast.makeText(this@LoginActivity, Utils.LOGIN_SUCCESSFUL_MESSAGE, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginActivity,
+                    Utils.LOGIN_SUCCESSFUL_MESSAGE, Toast.LENGTH_SHORT).show()
                 startHomeActivity()
             }
             true -> {
-                Toast.makeText(this@LoginActivity, Utils.INVALID_DETAILS_MESSAGE, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginActivity,
+                    Utils.INVALID_DETAILS_MESSAGE, Toast.LENGTH_SHORT).show()
             }
         }
     }

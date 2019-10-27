@@ -1,8 +1,11 @@
-package com.example.login
+package com.example.login.signup
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.login.R
+import com.example.login.Utils
+import com.example.login.auth.AuthRepository
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuthUserCollisionException

@@ -8,7 +8,7 @@
 
         <variable
                 name="signUpViewModel"
-                type="com.example.login.SignUpViewModel" />
+                type="com.example.login.signup.SignUpViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"

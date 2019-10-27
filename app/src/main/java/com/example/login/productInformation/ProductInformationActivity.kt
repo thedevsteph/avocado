@@ -1,10 +1,11 @@
-package com.example.login
+package com.example.login.productInformation
 
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.login.*
 import com.squareup.picasso.Picasso
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -26,9 +27,14 @@ class ProductInformationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_information)
-        productId = intent.getIntExtra(Utils.PRODUCT_ID, DEFAULT_PRODUCT_VALUE)
+        productId = intent.getIntExtra(
+            Utils.PRODUCT_ID,
+            DEFAULT_PRODUCT_VALUE
+        )
 
-        recyclerView = findViewById(R.id.nutrition_value_recycler_view)
+        recyclerView = findViewById(
+            R.id.nutrition_value_recycler_view
+        )
         recyclerView.apply {
             layoutManager =  LinearLayoutManager(this@ProductInformationActivity, LinearLayoutManager.HORIZONTAL, false)
         }
@@ -38,7 +44,10 @@ class ProductInformationActivity : AppCompatActivity() {
 
     private fun loadData() {
         val requestBuilder = Retrofit.Builder()
-            .baseUrl(utils.getFormattedProductUrl(productId))
+            .baseUrl(
+                utils.getFormattedProductUrl(
+                    productId
+                ))
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build().create(ProductInformationService::class.java)
@@ -54,7 +63,8 @@ class ProductInformationActivity : AppCompatActivity() {
     private fun populateViews(productInformationData: ProductInformationData){
         val selectedProductImage: ImageView = findViewById(R.id.product_information_image)
         getImageFromUrl(productInformationData.imageUrls?.get(1),selectedProductImage)
-        recyclerView.adapter = ProductNutritionAdapter(productInformationData.nutritionData)
+        recyclerView.adapter =
+            ProductNutritionAdapter(productInformationData.nutritionData)
 
     }
 

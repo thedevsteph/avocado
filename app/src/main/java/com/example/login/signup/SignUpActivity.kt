@@ -1,4 +1,4 @@
-package com.example.login
+package com.example.login.signup
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.login.databinding.ActivitySignUpBinding
+import com.example.login.home.HomeActivity
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -23,7 +24,8 @@ class SignUpActivity : AppCompatActivity() {
 
         binding = ActivitySignUpBinding.inflate(LayoutInflater.from(this)).apply {
             setContentView(root)
-            viewModel = ViewModelProviders.of(this@SignUpActivity).get(SignUpViewModel::class.java)
+            viewModel = ViewModelProviders.of(this@SignUpActivity).get(
+                SignUpViewModel::class.java)
             setLifecycleOwner(this@SignUpActivity)
         }
         updateUI()
@@ -77,7 +79,8 @@ class SignUpActivity : AppCompatActivity() {
     private var userValidationObserver = Observer{ result: Boolean? ->
         when (result) {
             true -> {
-                Toast.makeText(this, ACCOUNT_CREATED_TEXT, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,
+                    ACCOUNT_CREATED_TEXT, Toast.LENGTH_SHORT).show()
                 startHomeActivity()
             }
             else -> {}

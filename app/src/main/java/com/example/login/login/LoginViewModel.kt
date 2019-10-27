@@ -1,8 +1,9 @@
-package com.example.login
+package com.example.login.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.login.auth.AuthRepository
 import com.google.firebase.auth.AuthResult
 
 class LoginViewModel: ViewModel(){

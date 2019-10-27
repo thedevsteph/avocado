@@ -1,4 +1,4 @@
-package com.example.login
+package com.example.login.home
 
 import android.content.Context
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.login.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -19,7 +20,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 class HomeActivity : AppCompatActivity() {
 
     companion object {
-        private const val BASE_URL: String = "https://api.spoonacular.com/food/products/"
         private const val NUMBER_OF_COLUMNS: Int = 2
         private var myCompositeDisposable: CompositeDisposable = CompositeDisposable()
         private var recyclerView: RecyclerView? = null
@@ -34,7 +34,9 @@ class HomeActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.search_items_recycler_view)
         recyclerView?.apply {
             addItemDecoration(GridSpacingItemDecoration(2, 50, true))
-            layoutManager = GridLayoutManager(this@HomeActivity, NUMBER_OF_COLUMNS)
+            layoutManager = GridLayoutManager(this@HomeActivity,
+                NUMBER_OF_COLUMNS
+            )
         }
 
         val searchBar: EditText = findViewById(R.id.recipe_search_bar)
@@ -50,7 +52,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun loadData(query: String) {
         val requestBuilder = Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(Utils.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build().create(GetProductData::class.java)

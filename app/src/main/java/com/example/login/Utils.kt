@@ -11,6 +11,8 @@ class Utils {
         const val AUTH_COLLISION_ERROR_CODE = "ERROR_EMAIL_ALREADY_IN_USE"
         const val CREATE_ACCOUNT_ERROR = "There has been an error. Try again later"
         const val BACK_SLASH = "/"
+        const val BASE_URL: String = "https://api.spoonacular.com/food/products/"
+
 
         private val priceArray: ArrayList<String> =
             arrayListOf("€9.99", "€20.99", "€12.49", "€6.45", "€18.49", "€11.99", "€10.49")

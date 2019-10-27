@@ -4,17 +4,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.login.databinding.ActivitySignUpBinding
-import kotlinx.android.synthetic.main.activity_sign_up.view.*
 
 class SignUpActivity : AppCompatActivity() {
 
     companion object {
         private lateinit var viewModel: SignUpViewModel
         private lateinit var binding: ActivitySignUpBinding
+        const val ACCOUNT_CREATED_TEXT = "welcome to the family."
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,19 +25,35 @@ class SignUpActivity : AppCompatActivity() {
             setContentView(root)
             viewModel = ViewModelProviders.of(this@SignUpActivity).get(SignUpViewModel::class.java)
             setLifecycleOwner(this@SignUpActivity)
-            updateUI()
         }
+        updateUI()
         validateUserDetails()
     }
 
-    public override fun onStart() {
-        super.onStart()
-    }
 
     private fun updateUI() {
         viewModel.apply {
             errorMessage.observe(this@SignUpActivity, updateErrorMessageObserver)
             displayErrorMessage.observe(this@SignUpActivity, updateVisibilityObserver)
+        }
+    }
+
+    private fun validateUserDetails() {
+        binding.submitTextView.apply {
+            isClickable = true
+            setOnClickListener {
+                val email: String = binding.emailEditText.text.toString()
+                val password: String = binding.passwordEditText.text.toString()
+                createNewUser(email, password)
+                viewModel.hasAccess.observe(this@SignUpActivity, userValidationObserver)
+                viewModel.resetAccess()
+            }
+        }
+    }
+
+    private fun createNewUser(email: String, password: String) {
+        viewModel.apply {
+            authenticateUserDetails(email, password)
         }
     }
 
@@ -52,36 +69,38 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-
-    private fun validateUserDetails() {
-        binding.submitTextView.apply {
-            isClickable = true
-            setOnClickListener {
-                val email: String = binding.emailEditText.text.toString()
-                val password: String = binding.passwordEditText.text.toString()
-                createNewUser(email, password)
-            }
-        }
+    private fun startHomeActivity() {
+        val intent = Intent(this@SignUpActivity, HomeActivity::class.java)
+        this.startActivity(intent)
     }
 
-    private var userValidationObserver = Observer<Boolean?> { result ->
-        when(result){
-            true -> startHomeActivity()
+    private var userValidationObserver = Observer{ result: Boolean? ->
+        when (result) {
+            true -> {
+                Toast.makeText(this, ACCOUNT_CREATED_TEXT, Toast.LENGTH_SHORT).show()
+                startHomeActivity()
+            }
             else -> {}
         }
     }
 
-
-    private fun createNewUser(email: String, password: String) {
+    private fun removeObservers() {
         viewModel.apply {
-            authenticateUserDetails(email, password)
-            hasAccess.observe(this@SignUpActivity, userValidationObserver)
+            errorMessage.removeObservers(this@SignUpActivity)
+            displayErrorMessage.removeObservers(this@SignUpActivity)
+            hasAccess.removeObservers(this@SignUpActivity)
         }
-        viewModel.hasAccess.removeObservers(this@SignUpActivity)
     }
 
-    private fun startHomeActivity() {
-        var intent = Intent(this@SignUpActivity, HomeActivity::class.java)
-        this.startActivity(intent)
+    override fun onPause() {
+        super.onPause()
+        viewModel.resetAccess()
+        removeObservers()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        validateUserDetails()
+        updateUI()
     }
 }

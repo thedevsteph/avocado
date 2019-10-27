@@ -1,13 +1,10 @@
 package com.example.login
 
-import android.content.res.Resources
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 
 class SignUpViewModel : ViewModel() {
@@ -32,10 +29,10 @@ class SignUpViewModel : ViewModel() {
     }
 
     private fun handleAuthResult(task: Task<AuthResult?>) {
-        if((task.exception as FirebaseAuthUserCollisionException).errorCode == "ERROR_EMAIL_ALREADY_IN_USE"){
-            displayErrorMessage()
-        } else if (task.isSuccessful) {
-            _hasAccess.value = true
+        when {
+            (task.isSuccessful) -> _hasAccess.value = true
+            task.exception == null -> _hasAccess.value = true
+            (task.exception as FirebaseAuthUserCollisionException).errorCode == Utils.AUTH_COLLISION_ERROR_CODE -> displayErrorMessage()
         }
     }
 
@@ -43,4 +40,10 @@ class SignUpViewModel : ViewModel() {
         _displayErrorMessage.value = true
         _errorMessage.value = R.string.user_exists_error_message
     }
+
+    fun resetAccess(){
+        _hasAccess.value = false
+    }
+
+
 }

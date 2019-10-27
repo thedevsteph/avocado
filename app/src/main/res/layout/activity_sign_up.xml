@@ -100,9 +100,10 @@
 
         <TextView
                 android:id="@+id/error_message_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"
+                android:paddingHorizontal="24dp"
                 android:textColor="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="@id/guideline_right"
                 app:layout_constraintStart_toStartOf="@id/guideline_left"

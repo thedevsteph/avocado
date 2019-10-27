@@ -8,6 +8,8 @@ class Utils {
         const val PRODUCT_INFO_BASE_URL = "https://api.spoonacular.com/food/products/"
         const val LOGIN_SUCCESSFUL_MESSAGE = "Login successful"
         const val INVALID_DETAILS_MESSAGE = "Sorry, there was an issue with your username or password"
+        const val AUTH_COLLISION_ERROR_CODE = "ERROR_EMAIL_ALREADY_IN_USE"
+        const val CREATE_ACCOUNT_ERROR = "There has been an error. Try again later"
         const val BACK_SLASH = "/"
 
         private val priceArray: ArrayList<String> =

@@ -24,8 +24,7 @@ class SignUpActivity : AppCompatActivity() {
 
         binding = ActivitySignUpBinding.inflate(LayoutInflater.from(this)).apply {
             setContentView(root)
-            viewModel = ViewModelProviders.of(this@SignUpActivity).get(
-                SignUpViewModel::class.java)
+            viewModel = ViewModelProviders.of(this@SignUpActivity).get(SignUpViewModel::class.java)
             setLifecycleOwner(this@SignUpActivity)
         }
         updateUI()
@@ -76,14 +75,17 @@ class SignUpActivity : AppCompatActivity() {
         this.startActivity(intent)
     }
 
-    private var userValidationObserver = Observer{ result: Boolean? ->
+    private var userValidationObserver = Observer { result: Boolean? ->
         when (result) {
             true -> {
-                Toast.makeText(this,
-                    ACCOUNT_CREATED_TEXT, Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    ACCOUNT_CREATED_TEXT, Toast.LENGTH_SHORT
+                ).show()
                 startHomeActivity()
             }
-            else -> {}
+            else -> {
+            }
         }
     }
 

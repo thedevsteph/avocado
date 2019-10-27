@@ -20,6 +20,16 @@
             android:layout_height="wrap_content"
     />
 
+    <ImageView
+            android:id="@+id/single_recipe_add_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="30dp"
+            android:layout_margin="25dp"
+            android:layout_height="25dp"
+            />
+
     <TextView
             android:id="@+id/single_recipe_item_price"
             app:layout_constraintTop_toBottomOf="@id/single_recipe_item_image"

@@ -4,7 +4,6 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <import type="android.view.View" />
 
         <variable
@@ -37,9 +36,9 @@
                     android:inputType="text"
                     android:paddingHorizontal="20dp"
                     android:paddingVertical="5dp"
-                    android:textColor="@color/colorWhite"
-                    android:textColorHint="@color/colorWhite"
-                    android:textSize="14dp"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="12dp"
                     app:layout_constraintBottom_toTopOf="@id/search_items_recycler_view"
                     app:layout_constraintEnd_toEndOf="@id/guideline_right"
                     app:layout_constraintStart_toStartOf="@id/guideline_left"
@@ -76,10 +75,11 @@
                     android:id="@+id/progress_bar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="@{homeViewModel.isProgressBarLoading ? View.VISIBLE : View.GONE}"
+                    android:visibility="@{safeUnbox(homeViewModel.isProgressBarLoading) ? View.VISIBLE : View.GONE}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    android:indeterminateTint="@color/colorCreamyCream"
                     app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -89,8 +89,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:text="@{homeViewModel.messageText}"
-                    android:visibility="@{homeViewModel.showMessageText ? View.VISIBLE : View.GONE}"
-                    android:textColor="@color/colorAvocadoGreen"
+                    android:visibility="@{safeUnbox(homeViewModel.showMessageText) ? View.VISIBLE : View.GONE}"
+                    android:textColor="@color/colorCreamyCream"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

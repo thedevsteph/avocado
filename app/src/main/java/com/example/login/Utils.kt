@@ -9,8 +9,9 @@ class Utils {
         const val LOGIN_SUCCESSFUL_MESSAGE = "Login successful"
         const val INVALID_DETAILS_MESSAGE = "Sorry, there was an issue with your username or password"
         const val AUTH_COLLISION_ERROR_CODE = "ERROR_EMAIL_ALREADY_IN_USE"
-        const val CREATE_ACCOUNT_ERROR = "There has been an error. Try again later"
         const val BACK_SLASH = "/"
+        const val ERROR_TEXT = "There was error. Please try again, later."
+        const val SEARCH_FOR_ITEM_TEXT = "Hit search"
         const val BASE_URL: String = "https://api.spoonacular.com/food/products/"
 
 

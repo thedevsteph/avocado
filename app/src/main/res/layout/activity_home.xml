@@ -61,6 +61,16 @@
                 app:layout_constraintGuide_end="20dp"
                 app:layout_constraintStart_toEndOf="parent" />
 
+        <ProgressBar
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include layout="@layout/bottom_shopping_cart_sheet" />
